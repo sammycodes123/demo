@@ -3,6 +3,14 @@ import { Link } from "react-router-dom"
 
 const slides = [
   {
+    image: "/sfjigh8hgngjg.avif",
+    eyebrow: "Admissions open for the 2026/2027 academic year",
+    title: "Shape your future at Nile University",
+    description:
+      "A leading center of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
+    cta: { label: "Apply Now", href: "#" },
+  },
+  {
     image: "/NUN02329-scaled.avif",
     eyebrow: "Home to eight faculties and 80+ programs",
     title: "Find the right program for you",
@@ -17,14 +25,6 @@ const slides = [
     description:
       "Explore our facilities, faculties, and campus life from anywhere in the world, before you visit in person.",
     cta: { label: "Take the Virtual Tour", to: "/virtual-tour" },
-  },
-  {
-    image: "/sfjigh8hgngjg.avif",
-    eyebrow: "Admissions open for the 2026/2027 academic year",
-    title: "Shape your future at Nile University",
-    description:
-      "A leading center of academic excellence, research and innovation, preparing graduates to lead in a changing world.",
-    cta: { label: "Apply Now", href: "#" },
   },
   {
     image: "/l3.jpeg",
