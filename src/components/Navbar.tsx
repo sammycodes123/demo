@@ -37,12 +37,6 @@ function Navbar() {
             </a>
           )
         )}
-        <button
-          aria-label="Search"
-          className="text-gray-400 transition-transform hover:scale-110 hover:text-navy"
-        >
-          🔍
-        </button>
       </nav>
 
       <a
