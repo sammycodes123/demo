@@ -62,7 +62,7 @@ function Stats() {
 
   return (
     <section className="bg-sand px-6 py-14 text-center md:px-10">
-      <h2 className="mb-8 text-[40px] font-bold leading-tight text-navy">
+      <h2 className="mb-8 text-[48px] font-semibold not-italic leading-[48px] text-navy">
         Our achievements at a glance
       </h2>
       <div

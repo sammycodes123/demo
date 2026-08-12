@@ -26,7 +26,7 @@ function News() {
     <section className="bg-gray-50 px-6 py-16 md:px-10">
       <Reveal>
         <div className="mx-auto flex max-w-7xl items-baseline justify-between">
-          <h2 className="text-[40px] font-bold leading-tight text-navy">Latest news and events</h2>
+          <h2 className="text-[48px] font-semibold not-italic leading-[48px] text-navy">Latest news and events</h2>
           <a href="#" className="text-lg text-gray-500 hover:text-navy">
             View all ›
           </a>

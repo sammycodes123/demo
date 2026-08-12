@@ -61,13 +61,13 @@ function Hero() {
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-navy shadow transition-transform duration-200 hover:scale-110 hover:bg-white md:left-8 md:h-14 md:w-14"
+        className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 text-white transition-colors duration-200 hover:border-white hover:bg-white/10 md:left-8 md:h-12 md:w-12"
       >
-        <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 md:h-7 md:w-7">
+        <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 md:h-6 md:w-6">
           <path
             d="M15 5l-7 7 7 7"
             stroke="currentColor"
-            strokeWidth="2.5"
+            strokeWidth="1.75"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -76,13 +76,13 @@ function Hero() {
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-navy shadow transition-transform duration-200 hover:scale-110 hover:bg-white md:right-8 md:h-14 md:w-14"
+        className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 text-white transition-colors duration-200 hover:border-white hover:bg-white/10 md:right-8 md:h-12 md:w-12"
       >
-        <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 md:h-7 md:w-7">
+        <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 md:h-6 md:w-6">
           <path
             d="M9 5l7 7-7 7"
             stroke="currentColor"
-            strokeWidth="2.5"
+            strokeWidth="1.75"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -103,30 +103,34 @@ function Hero() {
         {slide.cta.to ? (
           <Link
             to={slide.cta.to}
-            className="inline-block rounded bg-gold px-6 py-3 text-base font-medium text-white transition-all hover:scale-105 hover:bg-gold-light"
+            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-sand"
           >
             {slide.cta.label}
           </Link>
         ) : (
           <a
             href={slide.cta.href}
-            className="inline-block rounded bg-gold px-6 py-3 text-base font-medium text-white transition-all hover:scale-105 hover:bg-gold-light"
+            className="inline-block border-l-[6px] border-gold bg-white px-6 py-3 text-base font-semibold text-navy transition-colors hover:bg-sand"
           >
             {slide.cta.label}
           </a>
         )}
       </div>
 
-      <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+      <div className="absolute bottom-6 left-8 z-10 flex items-center gap-3 pl-12 md:left-16 md:pl-10">
         {slides.map((s, i) => (
           <button
             key={s.image}
             aria-label={`Go to slide ${i + 1}`}
+            aria-current={i === active ? "true" : undefined}
             onClick={() => setActive(i)}
-            className={`h-2 w-2 rounded-full transition-colors ${
-              i === active ? "bg-gold-light" : "bg-white/40"
-            }`}
-          />
+            className="group relative h-4 w-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-light md:w-12"
+          >
+            <span className="absolute inset-x-0 top-1/2 h-[3px] -translate-y-1/2 bg-white/30 transition-colors duration-200 group-hover:bg-white/50" />
+            {i === active && (
+              <span className="animate-progress-fill absolute left-0 top-1/2 h-[3px] -translate-y-1/2 bg-gold-light" />
+            )}
+          </button>
         ))}
       </div>
     </section>

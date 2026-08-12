@@ -1,0 +1,99 @@
+import { useState } from "react"
+import { GraduationCap } from "lucide-react"
+import Reveal from "./Reveal"
+
+const tabs = [
+  {
+    label: "World-class faculty",
+    image: "/l2.jpeg",
+    paragraphs: [
+      "Our lecturers bring together deep academic research and real industry experience, so every class stays connected to how the field actually works today.",
+      "Small class sizes mean you get direct access to your instructors, mentorship on your projects, and guidance that goes beyond the syllabus.",
+    ],
+  },
+  {
+    label: "Modern campus facilities",
+    image: "/DSC08719-1.avif",
+    paragraphs: [
+      "From well-equipped laboratories to modern lecture halls and residence facilities, our campus is built to support serious study and comfortable student life.",
+      "Reliable power, fast internet, and dedicated study spaces mean you can focus on learning, on campus or in your hall of residence.",
+    ],
+  },
+  {
+    label: "Career-focused curriculum",
+    image: "/kdqcmr9vp8hfuf.jpg",
+    paragraphs: [
+      "Every program is built with internships, industry projects, and practical training woven into the coursework, not left as an afterthought.",
+      "By the time you graduate, you'll have real project experience and industry connections to back up your degree.",
+    ],
+  },
+]
+
+function Usp() {
+  const [active, setActive] = useState(0)
+  const tab = tabs[active]
+
+  return (
+    <section className="px-6 py-16 md:px-10">
+      <div className="mx-auto max-w-7xl">
+        <Reveal>
+          <h2 className="mb-8 text-[48px] font-semibold not-italic leading-[48px] text-navy">
+            Why choose Nile University?
+          </h2>
+        </Reveal>
+
+        <Reveal delay={100}>
+          <div className="grid overflow-hidden border border-gray-100 shadow-sm lg:grid-cols-[42%_1fr] lg:grid-rows-[auto_1fr]">
+            <div className="relative min-h-[280px] lg:row-span-2">
+              <img
+                key={tab.image}
+                src={tab.image}
+                alt={tab.label}
+                className="absolute inset-0 h-full w-full object-cover animate-fade-in-up"
+              />
+              <div className="absolute inset-0 bg-black/10" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg">
+                  <div className="ml-1 h-0 w-0 border-y-[10px] border-l-[16px] border-y-transparent border-l-gold" />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap border-b border-gray-100 bg-sand lg:flex-nowrap">
+              {tabs.map((t, i) => (
+                <button
+                  key={t.label}
+                  onClick={() => setActive(i)}
+                  className={`flex-1 whitespace-nowrap px-4 py-4 text-sm font-semibold transition-colors duration-200 sm:text-base ${
+                    i === active
+                      ? "bg-white text-navy"
+                      : "text-gray-500 hover:text-navy"
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="relative overflow-hidden bg-white p-8 md:p-10">
+              <GraduationCap
+                className="pointer-events-none absolute -bottom-6 -right-6 h-40 w-40 text-sand"
+                strokeWidth={1}
+              />
+              <div className="relative">
+                <h3 className="mb-4 text-2xl font-bold text-navy">{tab.label}</h3>
+                {tab.paragraphs.map((p) => (
+                  <p key={p} className="mb-4 text-base leading-relaxed text-gray-500 last:mb-0">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+export default Usp
