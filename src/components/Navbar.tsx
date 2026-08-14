@@ -1,8 +1,42 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
+import { ChevronDown } from "lucide-react"
 import logo from "../assets/nile-logo.svg"
 
-const links = [
-  { label: "About Nile", to: null },
+type DropdownLink = { label: string; to: string | null }
+type DropdownColumn = { heading: string; links: DropdownLink[] }
+type Dropdown = { columns: DropdownColumn[] }
+type NavLink = { label: string; to: string | null; dropdown?: Dropdown }
+
+const aboutDropdown: Dropdown = {
+  columns: [
+    {
+      heading: "Leadership & reports",
+      links: [
+        { label: "Vice Chancellor's Welcome Message", to: null },
+        { label: "Organization Chart", to: null },
+        { label: "Staff", to: null },
+        { label: "Latest News & Events", to: null },
+        { label: "Employability Report", to: null },
+        { label: "Honoris Impact Report 2025", to: null },
+      ],
+    },
+    {
+      heading: "Community",
+      links: [
+        { label: "Honoris United Universities", to: null },
+        { label: "Alumni", to: null },
+        { label: "Nile Community", to: null },
+        { label: "TEDx Nile University", to: null },
+        { label: "Our Partners", to: null },
+        { label: "Virtual Tour", to: "/virtual-tour" },
+      ],
+    },
+  ],
+}
+
+const links: NavLink[] = [
+  { label: "About Nile", to: null, dropdown: aboutDropdown },
   { label: "Study & admissions", to: null },
   { label: "Student life", to: null },
   { label: "Research", to: null },
@@ -12,40 +46,94 @@ const links = [
 ]
 
 function Navbar() {
+  const [openMenu, setOpenMenu] = useState<string | null>(null)
+
   return (
-    <header className="flex items-center justify-between border-b border-gray-200 px-6 py-4 md:px-10">
-      <Link to="/">
-        <img src={logo} alt="Nile University of Nigeria" className="h-10 w-auto md:h-11" />
-      </Link>
+    <header className="border-b border-gray-200" onMouseLeave={() => setOpenMenu(null)}>
+      <div className="flex items-center justify-between px-6 py-4 md:px-10">
+        <Link to="/">
+          <img src={logo} alt="Nile University of Nigeria" className="h-10 w-auto md:h-11" />
+        </Link>
 
-      <nav className="hidden items-center gap-6 text-[20px] font-medium not-italic leading-[30px] text-gray-600 lg:flex">
-        {links.map((link) =>
-          link.to ? (
-            <Link
+        <nav className="relative hidden items-center gap-6 text-[20px] font-medium not-italic leading-[30px] text-gray-600 lg:flex">
+          {links.map((link) => (
+            <div
               key={link.label}
-              to={link.to}
-              className="relative py-1 transition-colors hover:text-navy after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+              onMouseEnter={() => setOpenMenu(link.dropdown ? link.label : null)}
             >
-              {link.label}
-            </Link>
-          ) : (
-            <a
-              key={link.label}
-              href="#"
-              className="relative py-1 transition-colors hover:text-navy after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-            >
-              {link.label}
-            </a>
-          )
-        )}
-      </nav>
+              {link.to ? (
+                <Link
+                  to={link.to}
+                  className="relative flex items-center gap-1 py-1 transition-colors hover:text-navy after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  href="#"
+                  className="relative flex items-center gap-1 py-1 transition-colors hover:text-navy after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {link.label}
+                  {link.dropdown && (
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform duration-200 ${
+                        openMenu === link.label ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
+                </a>
+              )}
+            </div>
+          ))}
 
-      <a
-        href="#"
-        className="rounded bg-navy px-5 py-2.5 text-base font-medium text-white transition-all hover:scale-105 hover:bg-navy-light"
-      >
-        Apply now
-      </a>
+          {links.map(
+            (link) =>
+              link.dropdown &&
+              openMenu === link.label && (
+                <div
+                  key={link.label}
+                  className="animate-fade-in-up absolute inset-x-0 top-full z-50 pt-4"
+                >
+                  <div className="flex justify-between border border-gray-100 bg-white p-8 shadow-xl">
+                    {link.dropdown.columns.map((col) => (
+                      <div key={col.heading}>
+                        <h3 className="mb-4 text-base font-bold text-navy">{col.heading}</h3>
+                        <ul className="space-y-3">
+                          {col.links.map((item) => (
+                            <li key={item.label}>
+                              {item.to ? (
+                                <Link
+                                  to={item.to}
+                                  className="not-italic font-normal text-[16px] leading-[28px] text-[#333435] hover:text-navy"
+                                >
+                                  {item.label}
+                                </Link>
+                              ) : (
+                                <a
+                                  href="#"
+                                  className="not-italic font-normal text-[16px] leading-[28px] text-[#333435] hover:text-navy"
+                                >
+                                  {item.label}
+                                </a>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+          )}
+        </nav>
+
+        <a
+          href="#"
+          className="rounded bg-navy px-5 py-2.5 text-base font-medium text-white transition-all hover:scale-105 hover:bg-navy-light"
+        >
+          Apply now
+        </a>
+      </div>
     </header>
   )
 }
