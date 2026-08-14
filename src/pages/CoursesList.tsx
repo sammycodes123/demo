@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import PageHero from "../components/PageHero"
+import { Link } from "react-router-dom"
 import CourseCard from "../components/CourseCard"
 import Reveal from "../components/Reveal"
 import { undergraduatePrograms, postgraduatePrograms, type Level } from "../data/courses"
@@ -12,7 +12,7 @@ const copy: Record<Level, { title: string; crumb: string; label: string; descrip
     crumb: "Study & admissions › Undergraduate courses",
     label: "undergraduate",
     description:
-      "Nile University's undergraduate programmes span eight faculties, combining rigorous academics with hands-on labs, studios, and industry attachments to prepare graduates for Nigeria's job market.",
+      "With access to Nile University's extensive collections and resources, our undergraduates have discovered new species, patented products, and co-authored original research.",
   },
   postgraduate: {
     title: "Postgraduate Courses",
@@ -42,7 +42,29 @@ function CoursesList({ level }: { level: Level }) {
 
   return (
     <div>
-      <PageHero crumb={crumb} title={title} description={description} maxWidth="max-w-7xl" />
+      <div className="relative flex min-h-[420px] items-center overflow-hidden bg-navy py-14 md:min-h-[480px]">
+        <img
+          src="/Rising%20Sun.avif"
+          alt=""
+          className="pointer-events-none absolute inset-y-0 right-0 h-full w-auto max-w-none opacity-30"
+        />
+        <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
+          <Reveal>
+            <p className="mb-3 text-sm text-gray-300">
+              <Link to="/" className="hover:text-gold-light">
+                Home
+              </Link>{" "}
+              <span className="mx-1">›</span> {crumb}
+            </p>
+            <h1 className="mb-3 text-[55px] not-italic font-extrabold leading-[60px] text-white">
+              {title}
+            </h1>
+            <p className="max-w-2xl text-[17px] not-italic font-normal leading-[30px] text-white">
+              {description}
+            </p>
+          </Reveal>
+        </div>
+      </div>
 
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-10">
         <p className="mb-3 text-base text-gray-600">

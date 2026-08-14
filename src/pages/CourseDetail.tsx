@@ -35,7 +35,7 @@ function CourseDetail() {
 
   if (!found) {
     return (
-      <div className="mx-auto max-w-5xl px-6 py-24 text-center md:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-24 text-center md:px-10">
         <h1 className="mb-4 text-2xl font-bold text-gray-900">Course not found</h1>
         <Link to="/undergraduate" className="text-navy underline hover:text-navy-light">
           Back to undergraduate courses
@@ -52,15 +52,32 @@ function CourseDetail() {
 
   return (
     <div>
-      <div className="bg-gray-200 px-6 py-14 text-center md:px-10">
-        <Reveal>
-          <h1 className="text-4xl font-bold leading-tight text-gray-900 md:text-6xl">
-            {course.name}
-          </h1>
-        </Reveal>
+      <div className="relative flex min-h-[420px] items-center overflow-hidden bg-navy py-14 md:min-h-[480px]">
+        <img
+          src="/Rising%20Sun.avif"
+          alt=""
+          className="pointer-events-none absolute inset-y-0 right-0 h-full w-auto max-w-none opacity-30"
+        />
+        <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
+          <Reveal>
+            <p className="mb-3 text-sm text-gray-300">
+              <Link to="/" className="hover:text-gold-light">
+                Home
+              </Link>{" "}
+              <span className="mx-1">›</span>{" "}
+              <Link to={listPath} className="hover:text-gold-light">
+                {level === "undergraduate" ? "Undergraduate courses" : "Postgraduate courses"}
+              </Link>{" "}
+              <span className="mx-1">›</span> {course.name}
+            </p>
+            <h1 className="text-[55px] not-italic font-extrabold leading-[60px] text-white">
+              {course.name}
+            </h1>
+          </Reveal>
+        </div>
       </div>
 
-      <div className="mx-auto max-w-5xl px-6 py-14 md:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-14 md:px-10">
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <Reveal>
             <h2 className="mb-4 text-xl font-semibold text-navy underline decoration-2 underline-offset-4">

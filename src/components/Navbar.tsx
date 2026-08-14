@@ -8,6 +8,7 @@ const links = [
   { label: "Research", to: null },
   { label: "News & media", to: null },
   { label: "Contact us", to: "/contact" },
+  { label: "Blog", to: "/blog" },
 ]
 
 function Navbar() {

@@ -1,11 +1,7 @@
-import PageHero from "../components/PageHero"
+import { Mail, MapPin, Phone } from "lucide-react"
+import { FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa6"
+import PhotoHero from "../components/PhotoHero"
 import Reveal from "../components/Reveal"
-
-const channels = [
-  { icon: "📞", label: "Call us", value: "+234 209 623 2187" },
-  { icon: "✉️", label: "Email us", value: "info@nileuniversity.edu.ng" },
-  { icon: "📍", label: "Visit us", value: "Plot 681, Cadastral Zone C-OO, Abuja" },
-]
 
 const departments = [
   { name: "Admissions office", email: "admissions@nileuniversity.edu.ng" },
@@ -16,146 +12,137 @@ const departments = [
   { name: "Library", email: "library@nileuniversity.edu.ng" },
 ]
 
-const socials = ["Facebook", "Instagram", "X", "LinkedIn"]
+const socials = [
+  { label: "Facebook", icon: FaFacebookF },
+  { label: "Instagram", icon: FaInstagram },
+  { label: "X", icon: FaXTwitter },
+  { label: "LinkedIn", icon: FaLinkedinIn },
+  { label: "YouTube", icon: FaYoutube },
+]
 
 function Contact() {
   return (
     <div>
-      <PageHero
-        crumb="Contact us"
-        title="Contact Us"
-        description="We'd love to hear from you. Reach out to us through any of the channels below."
-      />
+      <PhotoHero image="/DSC08719-1.avif" title="Contact Us" subtitle="Get in touch" />
 
-      <div className="grid divide-y divide-navy-light/30 bg-navy text-white sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-        {channels.map((channel) => (
-          <div key={channel.label} className="flex items-center gap-4 px-6 py-6 md:px-10">
-            <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white/10 text-xl">
-              {channel.icon}
-            </div>
-            <div>
-              <p className="text-sm uppercase tracking-wide text-gray-300">{channel.label}</p>
-              <p className="text-base font-semibold">{channel.value}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mx-auto max-w-5xl px-6 py-14 md:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
+      <div className="bg-gray-50 px-6 py-16 md:px-10">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_360px]">
           <Reveal>
-            <h2 className="mb-2 text-xl font-bold text-navy">Send us a message</h2>
-            <p className="mb-6 text-base text-gray-500">
-              Fill out the form below and we'll get back to you as soon as possible.
+            <h2 className="mb-4 text-2xl font-extrabold uppercase tracking-wide text-navy md:text-3xl">
+              Leave us your info
+            </h2>
+            <p className="mb-8 max-w-xl text-base leading-relaxed text-gray-500">
+              Have a question about admissions, programs, or campus life? Fill out the form
+              below and our team will get back to you as soon as possible.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <label className="block">
-                  <span className="mb-1.5 block text-sm text-gray-600">First name</span>
-                  <input
-                    type="text"
-                    className="w-full rounded border border-gray-300 px-4 py-2.5 text-base text-gray-700 outline-none focus:border-navy"
-                  />
-                </label>
-                <label className="block">
-                  <span className="mb-1.5 block text-sm text-gray-600">Last name</span>
-                  <input
-                    type="text"
-                    className="w-full rounded border border-gray-300 px-4 py-2.5 text-base text-gray-700 outline-none focus:border-navy"
-                  />
-                </label>
-              </div>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <label className="block">
-                  <span className="mb-1.5 block text-sm text-gray-600">Email address</span>
-                  <input
-                    type="email"
-                    className="w-full rounded border border-gray-300 px-4 py-2.5 text-base text-gray-700 outline-none focus:border-navy"
-                  />
-                </label>
-                <label className="block">
-                  <span className="mb-1.5 block text-sm text-gray-600">Phone number</span>
-                  <input
-                    type="tel"
-                    className="w-full rounded border border-gray-300 px-4 py-2.5 text-base text-gray-700 outline-none focus:border-navy"
-                  />
-                </label>
-              </div>
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
               <label className="block">
-                <span className="mb-1.5 block text-sm text-gray-600">Subject</span>
+                <span className="sr-only">Full name</span>
                 <input
                   type="text"
-                  className="w-full rounded border border-gray-300 px-4 py-2.5 text-base text-gray-700 outline-none focus:border-navy"
+                  required
+                  placeholder="Full Name*"
+                  className="w-full rounded border-none bg-white px-5 py-4 text-base text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
                 />
               </label>
               <label className="block">
-                <span className="mb-1.5 block text-sm text-gray-600">Message</span>
+                <span className="sr-only">Email</span>
+                <input
+                  type="email"
+                  required
+                  placeholder="Email*"
+                  className="w-full rounded border-none bg-white px-5 py-4 text-base text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
+                />
+              </label>
+              <label className="block">
+                <span className="sr-only">Subject</span>
+                <input
+                  type="text"
+                  required
+                  placeholder="Subject*"
+                  className="w-full rounded border-none bg-white px-5 py-4 text-base text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
+                />
+              </label>
+              <label className="block">
+                <span className="sr-only">Message</span>
                 <textarea
                   rows={5}
-                  className="w-full rounded border border-gray-300 px-4 py-2.5 text-base text-gray-700 outline-none focus:border-navy"
+                  required
+                  placeholder="Message*"
+                  className="w-full rounded border-none bg-white px-5 py-4 text-base text-gray-700 shadow-sm outline-none focus:ring-2 focus:ring-navy"
                 />
               </label>
               <button
                 type="submit"
-                className="rounded bg-navy px-6 py-3 text-base font-medium text-white transition-all hover:scale-105 hover:bg-navy-light"
+                className="w-full rounded bg-gold px-6 py-4 text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-gold-light"
               >
-                Send message
+                Submit now
               </button>
             </form>
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="rounded-lg bg-gray-50 p-6">
-              <h2 className="mb-4 text-lg font-semibold text-navy">Contact information</h2>
-              <dl className="mb-6 space-y-4 text-base">
-                <div>
-                  <dt className="text-sm text-gray-500">Address</dt>
-                  <dd className="text-gray-700">
-                    Plot 681, Cadastral Zone C-OO, Research & Institution Area, Jabi Airport
-                    Bypass, Abuja FCT
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-gray-500">Phone</dt>
-                  <dd className="text-gray-700">+234 209 623 2187</dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-gray-500">Email</dt>
-                  <dd className="text-gray-700">info@nileuniversity.edu.ng</dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-gray-500">Office hours</dt>
-                  <dd className="text-gray-700">Mon – Fri: 8:00am – 5:00pm</dd>
-                </div>
-              </dl>
-              <div className="flex gap-2">
-                {socials.map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    aria-label={social}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-600 transition-all hover:scale-110 hover:bg-navy hover:text-white"
-                  >
-                    {social[0]}
-                  </a>
-                ))}
+            <h2 className="mb-4 text-2xl font-extrabold uppercase tracking-wide text-navy md:text-3xl">
+              Location
+            </h2>
+            <p className="mb-6 text-base leading-relaxed text-gray-600">
+              Plot 681, Cadastral Zone C-OO, Research &amp; Institution Area, Jabi Airport
+              Bypass, Abuja FCT, Nigeria.
+            </p>
+            <div className="mb-8 space-y-3">
+              <a
+                href="mailto:contact@nileuniversity.edu.ng"
+                className="flex items-center gap-3 text-base text-gray-700 hover:text-navy"
+              >
+                <Mail className="h-4 w-4 flex-shrink-0 text-gold" />
+                contact@nileuniversity.edu.ng
+              </a>
+              <a
+                href="tel:+2349169853402"
+                className="flex items-center gap-3 text-base text-gray-700 hover:text-navy"
+              >
+                <Phone className="h-4 w-4 flex-shrink-0 text-gold" />
+                0916 985 3402
+              </a>
+              <div className="flex items-center gap-3 text-base text-gray-700">
+                <MapPin className="h-4 w-4 flex-shrink-0 text-gold" />
+                Abuja, Nigeria
               </div>
+            </div>
+
+            <h3 className="mb-3 text-lg font-extrabold uppercase tracking-wide text-navy">
+              Map
+            </h3>
+            <div className="h-64 overflow-hidden rounded-lg shadow-sm">
+              <iframe
+                title="Nile University location"
+                src="https://www.google.com/maps?q=Nile+University+of+Nigeria,+Abuja&output=embed"
+                className="h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </Reveal>
         </div>
 
-        <Reveal>
-          <div className="mt-14">
-            <h2 className="mb-4 text-xl font-bold text-navy">Find us on the map</h2>
-            <div className="flex h-72 items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-100 text-base text-gray-400">
-              [ Map placeholder ]
-            </div>
+        <Reveal delay={150}>
+          <div className="mx-auto mt-16 flex max-w-6xl justify-center gap-3 border-t border-gray-200 pt-10">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href="#"
+                aria-label={social.label}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-transform hover:scale-110"
+              >
+                <social.icon className="h-4 w-4" />
+              </a>
+            ))}
           </div>
         </Reveal>
       </div>
 
-      <div className="bg-gray-50 px-6 py-14 md:px-10">
-        <div className="mx-auto max-w-5xl">
+      <div className="px-6 py-16 md:px-10">
+        <div className="mx-auto max-w-6xl">
           <Reveal>
             <h2 className="mb-6 text-xl font-bold text-navy">Department contacts</h2>
           </Reveal>

@@ -5,6 +5,7 @@ import CoursesList from "./pages/CoursesList"
 import CourseDetail from "./pages/CourseDetail"
 import Contact from "./pages/Contact"
 import VirtualTour from "./pages/VirtualTour"
+import Blog from "./pages/Blog"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="single-course" element={<Navigate to="/courses/b-sc-biology" replace />} />
         <Route path="contact" element={<Contact />} />
         <Route path="virtual-tour" element={<VirtualTour />} />
+        <Route path="blog" element={<Blog />} />
       </Route>
     </Routes>
   )
