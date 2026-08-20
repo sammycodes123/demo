@@ -6,6 +6,7 @@ import CourseDetail from "./pages/CourseDetail"
 import Contact from "./pages/Contact"
 import VirtualTour from "./pages/VirtualTour"
 import Blog from "./pages/Blog"
+import PrincipalOfficers from "./pages/PrincipalOfficers"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="virtual-tour" element={<VirtualTour />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="principal-officers" element={<PrincipalOfficers />} />
       </Route>
     </Routes>
   )

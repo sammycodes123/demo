@@ -15,7 +15,7 @@ const aboutDropdown: Dropdown = {
       links: [
         { label: "Vice Chancellor's Welcome Message", to: null },
         { label: "Organization Chart", to: null },
-        { label: "Staff", to: null },
+        { label: "Principal Officers", to: "/principal-officers" },
         { label: "Latest News & Events", to: null },
         { label: "Employability Report", to: null },
         { label: "Honoris Impact Report 2025", to: null },
@@ -35,9 +35,39 @@ const aboutDropdown: Dropdown = {
   ],
 }
 
+const studyDropdown: Dropdown = {
+  columns: [
+    {
+      heading: "Admissions & programs",
+      links: [
+        { label: "Screen Now (Undergraduate Screening Portal)", to: null },
+        { label: "Apply Now (Postgraduate)", to: null },
+        { label: "Undergraduate Courses", to: "/undergraduate" },
+        { label: "Postgraduate Courses", to: "/postgraduate" },
+        { label: "School of Preliminary Studies", to: null },
+        { label: "Executive Master of Business Administration (EMBA)", to: null },
+        { label: "Nile Consult & Services Ltd.", to: null },
+        { label: "Nile Online", to: null },
+      ],
+    },
+    {
+      heading: "Resources",
+      links: [
+        { label: "Tuition Fees", to: null },
+        { label: "Download Prospectus", to: null },
+        { label: "Nile Welcome Booklet", to: null },
+        { label: "Scholarships & Discounts", to: null },
+        { label: "Academic Calendar", to: null },
+        { label: "SIWES", to: null },
+        { label: "Student Information System", to: null },
+      ],
+    },
+  ],
+}
+
 const links: NavLink[] = [
   { label: "About Nile", to: null, dropdown: aboutDropdown },
-  { label: "Study & admissions", to: null },
+  { label: "Study & admissions", to: null, dropdown: studyDropdown },
   { label: "Student life", to: null },
   { label: "Research", to: null },
   { label: "News & media", to: null },
@@ -55,10 +85,11 @@ function Navbar() {
           <img src={logo} alt="Nile University of Nigeria" className="h-10 w-auto md:h-11" />
         </Link>
 
-        <nav className="relative hidden items-center gap-6 text-[20px] font-medium not-italic leading-[30px] text-gray-600 lg:flex">
+        <nav className="hidden items-center gap-6 text-[20px] font-medium not-italic leading-[30px] text-gray-600 lg:flex">
           {links.map((link) => (
             <div
               key={link.label}
+              className="relative"
               onMouseEnter={() => setOpenMenu(link.dropdown ? link.label : null)}
             >
               {link.to ? (
@@ -83,22 +114,14 @@ function Navbar() {
                   )}
                 </a>
               )}
-            </div>
-          ))}
 
-          {links.map(
-            (link) =>
-              link.dropdown &&
-              openMenu === link.label && (
-                <div
-                  key={link.label}
-                  className="animate-fade-in-up absolute inset-x-0 top-full z-50 pt-4"
-                >
-                  <div className="flex justify-between border border-gray-100 bg-white p-8 shadow-xl">
+              {link.dropdown && openMenu === link.label && (
+                <div className="animate-fade-in-up absolute left-0 top-full z-50 pt-4">
+                  <div className="flex divide-x divide-gray-200 whitespace-nowrap border border-gray-100 bg-white shadow-xl">
                     {link.dropdown.columns.map((col) => (
-                      <div key={col.heading}>
+                      <div key={col.heading} className="px-8 py-8">
                         <h3 className="mb-4 text-base font-bold text-navy">{col.heading}</h3>
-                        <ul className="space-y-3">
+                        <ul className="space-y-5">
                           {col.links.map((item) => (
                             <li key={item.label}>
                               {item.to ? (
@@ -123,8 +146,9 @@ function Navbar() {
                     ))}
                   </div>
                 </div>
-              )
-          )}
+              )}
+            </div>
+          ))}
         </nav>
 
         <a
