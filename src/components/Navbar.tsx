@@ -65,10 +65,32 @@ const studyDropdown: Dropdown = {
   ],
 }
 
+const studentLifeDropdown: Dropdown = {
+  columns: [
+    {
+      heading: "Student experience",
+      links: [
+        { label: "Virtual Tour", to: "/virtual-tour" },
+        { label: "Student Experience", to: null },
+        { label: "Student Welfare", to: null },
+        { label: "Student Accommodation", to: null },
+      ],
+    },
+    {
+      heading: "Resources & activities",
+      links: [
+        { label: "Student Handbook", to: null },
+        { label: "Clubs & Activities", to: null },
+        { label: "Mystique Magazine", to: null },
+      ],
+    },
+  ],
+}
+
 const links: NavLink[] = [
   { label: "About Nile", to: null, dropdown: aboutDropdown },
   { label: "Study & admissions", to: null, dropdown: studyDropdown },
-  { label: "Student life", to: null },
+  { label: "Campus Life", to: null, dropdown: studentLifeDropdown },
   { label: "Research", to: null },
   { label: "News & media", to: null },
   { label: "Contact us", to: "/contact" },

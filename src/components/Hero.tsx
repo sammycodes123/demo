@@ -12,7 +12,7 @@ const slides = [
   },
   {
     image: "/NUN02329-scaled.avif",
-    eyebrow: "Home to eight faculties and 80+ programs",
+    eyebrow: "Home to eight faculties and 100+ programs",
     title: "Find the right program for you",
     description:
       "Explore undergraduate and postgraduate degrees across engineering, business, sciences, and the humanities.",

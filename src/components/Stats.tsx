@@ -3,9 +3,9 @@ import { useInView } from "../hooks/useInView"
 
 const stats = [
   { value: 13000, suffix: "+", label: "Students" },
-  { value: 80, suffix: "+", label: "Degree programs" },
+  { value: 100, suffix: "+", label: "Degree programs" },
   { value: 17, suffix: "+", label: "Years of excellence" },
-  { value: 8, suffix: "", label: "Faculties" },
+  { value: 80, suffix: "%", label: "Employability rate" },
 ]
 
 function StatItem({

@@ -49,11 +49,12 @@ function Programs() {
     <section className="px-6 py-16 md:px-10">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <h2 className="text-[48px] font-semibold not-italic leading-[48px] text-navy">
+          <div className="mb-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+            <div />
+            <h2 className="text-center text-[48px] font-semibold not-italic leading-[48px] text-navy">
               Academic Pathways
             </h2>
-            <div className="hidden shrink-0 gap-3 sm:flex">
+            <div className="hidden shrink-0 justify-self-end gap-3 sm:flex">
               <button
                 onClick={() => slide(-1)}
                 aria-label="Previous programs"
