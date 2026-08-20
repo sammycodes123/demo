@@ -18,7 +18,7 @@ const tabs = [
     image: "/DSC08719-1.avif",
     paragraphs: [
       "From well-equipped laboratories to modern lecture halls and comfortable residence facilities, our campus is built to support serious study and a genuinely enjoyable student life. Reliable power, fast internet, and dedicated quiet study spaces mean you can always find somewhere to focus, on campus or in your hall.",
-      "Nile University continues to invest in its facilities year after year, from upgraded labs and libraries to recreational spaces where students unwind between classes. Whatever your program, you'll have access to the tools, technology, and environment needed to learn properly, not just get by until the semester ends.",
+      "Nile University continues to invest in its facilities year after year, from upgraded labs and libraries to recreational spaces where students unwind between classes. Whatever your programme, you'll have access to the tools, technology, and environment needed to learn properly, not just get by until the semester ends.",
     ],
   },
   {
@@ -26,7 +26,7 @@ const tabs = [
     heading: "Career-focused curriculum",
     image: "/kdqcmr9vp8hfuf.jpg",
     paragraphs: [
-      "Every program at Nile University is built with internships, industry projects, and practical training woven directly into the coursework, not left as an afterthought for final year. You'll work on real problems alongside real organizations long before you ever apply for your first job after graduation.",
+      "Every programme at Nile University is built with internships, industry projects, and practical training woven directly into the coursework, not left as an afterthought for final year. You'll work on real problems alongside real organisations long before you ever apply for your first job after graduation.",
       "By the time you graduate, you'll have practical project experience, industry connections, and a curriculum built around what employers are actually looking for. Our career services team works alongside your academic advisors, so career readiness is part of your degree from day one, not something you figure out later.",
     ],
   },

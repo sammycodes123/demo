@@ -14,7 +14,7 @@ const programs = [
     image: "/kdqcmr9vp8hfuf.jpg",
     title: "Postgraduate",
     description:
-      "Master's and doctoral programs for professionals and researchers looking to deepen their expertise and impact.",
+      "Postgraduate diploma, master's, and doctoral programmes for professionals and researchers looking to deepen their expertise and impact.",
     to: "/postgraduate",
   },
   {
@@ -28,7 +28,7 @@ const programs = [
     image: "/nbs.jpg",
     title: "Nile Business School",
     description:
-      "Executive and specialized business education for professionals and entrepreneurs, blending industry practice with academic rigor.",
+      "Executive and specialised business education for professionals and entrepreneurs, blending industry practice with academic rigour.",
     to: null,
   },
 ]
@@ -49,15 +49,14 @@ function Programs() {
     <section className="px-6 py-16 md:px-10">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="mb-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-            <div />
-            <h2 className="text-center text-[48px] font-semibold not-italic leading-[48px] text-navy">
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <h2 className="text-[48px] font-semibold not-italic leading-[48px] text-navy">
               Academic Pathways
             </h2>
-            <div className="hidden shrink-0 justify-self-end gap-3 sm:flex">
+            <div className="hidden shrink-0 gap-3 sm:flex">
               <button
                 onClick={() => slide(-1)}
-                aria-label="Previous programs"
+                aria-label="Previous programmes"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-navy bg-white text-navy transition-colors hover:bg-navy hover:text-white"
               >
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
@@ -72,7 +71,7 @@ function Programs() {
               </button>
               <button
                 onClick={() => slide(1)}
-                aria-label="Next programs"
+                aria-label="Next programmes"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-navy transition-colors hover:border-gold hover:bg-gold hover:text-white"
               >
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">

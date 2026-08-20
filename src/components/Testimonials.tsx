@@ -23,7 +23,7 @@ const testimonials = [
   {
     name: "Chidi Umeh",
     quote:
-      "Moot court and the legal clinic gave me real courtroom experience before graduation, something I didn't expect from an undergraduate program.",
+      "Moot court and the legal clinic gave me real courtroom experience before graduation, something I didn't expect from an undergraduate programme.",
     meta: "Class of 2020 · Law",
   },
   // Placeholder — swap in a real quote/name before launch
