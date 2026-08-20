@@ -79,7 +79,10 @@ function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null)
 
   return (
-    <header className="border-b border-gray-200" onMouseLeave={() => setOpenMenu(null)}>
+    <header
+      className="sticky top-0 z-50 border-b border-gray-200 bg-white"
+      onMouseLeave={() => setOpenMenu(null)}
+    >
       <div className="flex items-center justify-between px-6 py-4 md:px-10">
         <Link to="/">
           <img src={logo} alt="Nile University of Nigeria" className="h-10 w-auto md:h-11" />

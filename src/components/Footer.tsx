@@ -49,35 +49,35 @@ const socials = [
 function Footer() {
   return (
     <footer className="bg-[#0f3069]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:px-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-screen-2xl gap-10 px-6 py-14 md:px-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <img
             src="/footer-logo.png"
             alt="Nile University of Nigeria"
             className="mb-4 h-14 w-auto"
           />
-          <p className="mb-4 leading-relaxed text-white">
+          <p className="mb-4 not-italic font-normal text-[16px] leading-[20px] text-white">
             Plot 681, Cadastral Zone C-OO, Research & Institution Area, Jabi Airport Bypass,
             Abuja FCT, Nigeria.
           </p>
           <div className="space-y-2">
             <a
               href="tel:+2349169853402"
-              className="flex items-center gap-3 text-white hover:text-gold-light"
+              className="flex items-center gap-3 not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
             >
               <Phone className="h-4 w-4 text-gold-light" />
               0916 985 3402
             </a>
             <a
               href="https://wa.me/2349169853402"
-              className="flex items-center gap-3 text-white hover:text-gold-light"
+              className="flex items-center gap-3 not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
             >
               <MessageCircle className="h-4 w-4 text-gold-light" />
               0916 985 3402
             </a>
             <a
               href="mailto:contact@nileuniversity.edu.ng"
-              className="flex items-center gap-3 text-white hover:text-gold-light"
+              className="flex items-center gap-3 not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
             >
               <Mail className="h-4 w-4 text-gold-light" />
               contact@nileuniversity.edu.ng
@@ -90,16 +90,22 @@ function Footer() {
             <h4 className="mb-4 font-semibold text-white underline decoration-2 underline-offset-4">
               {col.title}
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-4">
               {col.links.map((link) => (
                 <li key={link.label} className="flex items-start gap-2">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-gold-light" />
                   {link.to ? (
-                    <Link to={link.to} className="text-white hover:text-gold-light">
+                    <Link
+                      to={link.to}
+                      className="not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
+                    >
                       {link.label}
                     </Link>
                   ) : (
-                    <a href="#" className="text-white hover:text-gold-light">
+                    <a
+                      href="#"
+                      className="not-italic font-normal text-[16px] leading-[20px] text-white hover:text-gold-light"
+                    >
                       {link.label}
                     </a>
                   )}
@@ -111,7 +117,7 @@ function Footer() {
       </div>
 
       <div className="border-t border-white/20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 py-6 text-sm text-white md:flex-row md:justify-between md:px-10">
+        <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-4 px-6 py-6 text-sm text-white md:flex-row md:justify-between md:px-10">
           <p>© 2026 Nile University of Nigeria – All Rights Reserved | Member institution of Honoris United Universities.</p>
           <div className="flex gap-3">
             {socials.map((social) => (

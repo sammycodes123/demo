@@ -4,19 +4,19 @@ const items = [
   {
     tag: "News",
     image: "/l1.jpeg",
-    date: "2025",
+    date: "Jul 2026",
     headline: "Nile University places 3rd at the JAMB National Tertiary Admissions Performance Merit Awards",
   },
   {
     tag: "News",
     image: "/l2.jpeg",
-    date: "2020",
+    date: "Mar 2021",
     headline: "Nile University joins Honoris United Universities, Africa's largest private higher education network",
   },
   {
     tag: "News",
     image: "/l3.jpeg",
-    date: "Ongoing",
+    date: "Jun 2026",
     headline: "Nile University medical graduates recognised by the UK General Medical Council",
   },
 ]
@@ -36,7 +36,7 @@ function News() {
         {items.map((item, i) => (
           <Reveal key={item.headline} delay={i * 100}>
             <div className="group">
-              <div className="relative mb-3 h-40 overflow-hidden rounded-lg">
+              <div className="relative mb-3 h-64 overflow-hidden rounded-lg">
                 <img
                   src={item.image}
                   alt=""

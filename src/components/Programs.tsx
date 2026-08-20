@@ -25,7 +25,7 @@ const programs = [
     to: null,
   },
   {
-    image: "/campus-audience.jpg",
+    image: "/nbs.jpg",
     title: "Nile Business School",
     description:
       "Executive and specialized business education for professionals and entrepreneurs, blending industry practice with academic rigor.",
@@ -51,13 +51,13 @@ function Programs() {
         <Reveal>
           <div className="mb-4 flex items-center justify-between gap-4">
             <h2 className="text-[48px] font-semibold not-italic leading-[48px] text-navy">
-              Degree programs
+              Academic Pathways
             </h2>
             <div className="hidden shrink-0 gap-3 sm:flex">
               <button
                 onClick={() => slide(-1)}
                 aria-label="Previous programs"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-navy transition-colors hover:bg-navy hover:text-white"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-navy bg-white text-navy transition-colors hover:bg-navy hover:text-white"
               >
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
                   <path
@@ -72,7 +72,7 @@ function Programs() {
               <button
                 onClick={() => slide(1)}
                 aria-label="Next programs"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-navy transition-colors hover:bg-navy hover:text-white"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-navy transition-colors hover:border-gold hover:bg-gold hover:text-white"
               >
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
                   <path
